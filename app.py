@@ -27,10 +27,10 @@ def result():
     }
     
     #return content
-    return render_template('result.html', result=result)
+    return render_template('index.html', result=result)
 
 def add(value1, value2):
     return value1 + value2
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

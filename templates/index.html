@@ -1,26 +1,70 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <title>Simple Math</title>
-  </head>
-  <body>
-    
+<html lang="en">
+
+<head>
+    <title>Flask Base Tempalte With UI</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='main.css') }}">
+
+</head>
+
+<body>
+
     <div class="message_holder"></div>
 
-    <form action="add" method="POST">
-    	
-    	<h4>Simple Addition</h4>
-    
-       <input type="text" name="value1" placeholder="2"/>      	
-       
-       <br>
-       <input type="text" name="value2" placeholder="3"/>      	
-        
-       <br><br>
-      <input type="submit" value="Let's Add"/>
-      	
-    </form>    
-    
+    <section class="form-style-10">
+        <form action="/add" method="POST" name="li_form">
 
-  </body>
-  </html>
+            <div class="section"><span>*</span>Flask Base Template with UI</div>
+
+            <div class="inner-wrap">
+                <label>Value 1 <input type="text" name="value1" /></label>
+            </div>
+
+            <div class="inner-wrap">
+                <label>Value 2 <input type="text" name="value2" /></label>
+            </div>
+
+            <input type="submit" value="Add" />
+
+        </form>
+    </section>
+
+
+    {% if result %}
+    <section class="form-style-10" style="width:1000px;" id="result">
+
+        <table id="customers">
+            <tr>
+                <th>Value 1</th>
+                <th>Value 2</th>
+                <th>Result</th>
+            </tr>
+            <tr>
+                <td>{{result.value1}}</td>
+                <td>{{result.value2}}</td>
+                <td>{{result.value3}}</td>
+            </tr>
+        </table>
+    </section>
+    {% endif %}
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            console.log("ready!");
+
+
+
+        });
+    </script>
+
+</body>
+
+</html>
